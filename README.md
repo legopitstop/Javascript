@@ -269,7 +269,7 @@ var options = {
 ```
 **Result:**
 
-![Missing](https://github.com/legopitstop/Javascript/tree/main/assets/example_modal.png "Example Modal")
+![Missing](https://github.com/legopitstop/Javascript/blob/main/assets/example_modal.png?raw=true "Example Modal")
 
 ### closeModal();
 Used to close the current modal window, used inside modalWindow function
