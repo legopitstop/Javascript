@@ -4,7 +4,7 @@ This repo contains a few useful functions, below you can find how to install and
 # LPSCommon
 This contains many small, but useful functions. Note that this function does use some Jquery functions
 ## Install
-Install [LPSCommon.js](https://raw.githubusercontent.com/legopitstop/Javascript/main/libs/LPSCommon/1.0.0/)
+Install [LPSCommon.js](https://github.com/legopitstop/Javascript/tree/main/libs/LPSCommon/1.0.0)
 ```html
 <!--Jquery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -148,10 +148,12 @@ sendError(errorMessage: string): void;
 # modalWindow
 This contains a function that allows you to easily create a custom modal window. read more here https://www.w3schools.com/howto/howto_css_modals.asp. Note that this function does use some Jquery functions. More features are planned.
 ## Install
-Install [modalWindow.js](https://raw.githubusercontent.com/legopitstop/Javascript/main/libs/modalWindow/1.0.0/)
+Install [modalWindow.js](https://github.com/legopitstop/Javascript/tree/main/libs/modalWindow/1.0.0)
 ```html
 <!--Jquery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<!--LPSCommon-->
+<script src="https://raw.githubusercontent.com/legopitstop/Javascript/main/libs/LPSCommon/1.0.0/script.js"></script>
 <!--Modal Window-->
 <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/legopitstop/Javascript/main/libs/modalWindow/1.0.0/style.css" />
 <script src="https://raw.githubusercontent.com/legopitstop/Javascript/main/libs/modalWindow/1.0.0/script.js"></script>
