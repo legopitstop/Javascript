@@ -225,51 +225,51 @@ body: {Array}
 #### Example
 ```js
 var options = {
-    'theme': 'dark',
-    'title': {
-        'text': 'View JSON',
-        'header': 1
-    },
-    'body': [
-        {
-            'text': 'View the discord message.'
+        'theme': 'dark',
+        'title': {
+            'text': 'View JSON',
+            'header': 1
         },
-        {
-            'text': ' ',
-            'codeblock': {
-                'width': '100%',
-                'height': '50%',
-                'readonly': true,
-                'extension': 'text/json',
-                'code': {
-                    'type': 'contents',
-                    'pretty_print': true,
-                    'value': {
-                        "content": "This is the message that shows up in discord!",
-                        "embeds": [
-                            {
-                                "title": "Embed title",
-                                "description": "This is a description for embed.",
-                                "author": "Your Mom",
-                                "fields": [
-                                    {
-                                        "name": "What is a field?",
-                                        "value": "IDK?"
-                                    }
-                                ]
-                            }
-                        ]
+        'body': [
+            {
+                'text': 'View the discord message.'
+            },
+            {
+                'text': ' ',
+                'codeblock': {
+                    'width': '50%',
+                    'height': '33ch',
+                    'readonly': true,
+                    'extension': 'text/json',
+                    'code': {
+                        'type': 'contents',
+                        'pretty_print': true,
+                        'value': {
+                            "content": "This is the message that shows up in discord!",
+                            "embeds": [
+                                {
+                                    "title": "Embed title",
+                                    "description": "This is a description for embed.",
+                                    "author": "Your Mom",
+                                    "fields": [
+                                        {
+                                            "name": "What is a field?",
+                                            "value": "IDK?"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
                     }
                 }
             }
-        }
-    ]
-}
-modalWindow('viewjson','json',options)
+        ]
+    }
+    modalWindow('viewjson', 'json', options)
 ```
 **Result:**
 
-![Not Added]()
+![Missing](https://github.com/legopitstop/Javascript/tree/main/assets/example_modal.png "Example Modal")
 
 ### closeModal();
 Used to close the current modal window, used inside modalWindow function
