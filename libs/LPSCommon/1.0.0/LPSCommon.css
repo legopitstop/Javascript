@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Icons');
+
+:root {
+    --text: white;
+    --background: #444444;
+}
+body {
+    color: var(--text);
+    background-color: var(--background);
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+}
+a:hover {
+    color: blue;
+    text-decoration: underline;
+}
