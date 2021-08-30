@@ -8,9 +8,9 @@ $(document).ready(function () {
  * // Will create a modal window (with id test)
  * var contents = {theme: 'dark', title: {text:'Window Title'}, body: [{text: 'Sone text...'}]}
  * modalWindow('example-modal', 'json', contents)
- * @param {string} modalID The id of the modal
- * @param {string} type The type of input to read, only supports JSON
- * @param {string} input The JSON data to create the window
+ * @param {String} modalID The id of the modal
+ * @param {String} type The type of input to read, only supports JSON
+ * @param {JSON} input The JSON data to create the window
 */
 function modalWindow(modalID, type, input) {
     if (input.width != undefined) { var Width = 'width: ' + input.width + ';' } else { var Width = '' }
@@ -118,7 +118,7 @@ function modalWindow(modalID, type, input) {
         /* hoverEvent */
         if (json.hoverEvent != undefined) {
             if (json.hoverEvent.action == 'show_text') {
-                var title = ' title="' + json.hoverEvent.contents.text + '" '
+                var title = ' title="' + json.hoverEvent.value + '" '
             } else {
                 var title = ''
             }
@@ -233,9 +233,6 @@ function modalWindow(modalID, type, input) {
 
 /**
  * Closes/removes the modal window
- * @example
- * // Will close the class 'modal'
- * closeModal()
 */
 function closeModal() {
     var removeElement = document.querySelector('.modal');
