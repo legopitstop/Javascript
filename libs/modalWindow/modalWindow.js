@@ -1,5 +1,5 @@
 /**
- * https://cdn.jsdelivr.net/gh/legopitstop/Javascript@main/libs/modalWindow/modalWindow.js
+ * https://cdn.jsdelivr.net/gh/legopitstop/Javascript/libs/modalWindow/modalWindow.js
  */
 
 $(document).ready(function () {

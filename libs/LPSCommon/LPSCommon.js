@@ -1,5 +1,5 @@
 /**
- * https://cdn.jsdelivr.net/gh/legopitstop/Javascript@main/libs/LPSCommon/LPSCommon.js
+ * https://cdn.jsdelivr.net/gh/legopitstop/Javascript/libs/LPSCommon/LPSCommon.js
  */
 
  $(document).ready(function () {
