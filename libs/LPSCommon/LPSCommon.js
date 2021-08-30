@@ -1,40 +1,5 @@
 /**
- * FEATURES
- * - customMarked
- * - imageError
- * - isrequired
- * - rng
- * - random number
- * - randomId
- * - clearElement
- * - copyElement
- * - copyElementId
- * - cutElement
- * - pressKey
- * - parseURLParams
- * - MinMaxValue
- * - errorClass
- * - disableElement
- * - enableElement
- * - openURL
- * - hideElement
- * - showElement
- * - sendError
- * - codeblock
- * - uuid
- * - focusId
- * - focusSelector
- * - selectId
- * - selectSelector
- * - scrollToId
- * - scrollToSelector
- * - convertURL
- * - hexToRgb
- * - rgbToHex
- * - checked
- * - startLoading
- * - stopLoading
- * - markdownHTML
+ * https://cdn.jsdelivr.net/gh/legopitstop/Javascript@main/libs/LPSCommon/LPSCommon.js
  */
 
  $(document).ready(function () {

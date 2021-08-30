@@ -1,4 +1,6 @@
-/* The Modal (background) */
+/**
+ * https://cdn.jsdelivr.net/gh/legopitstop/Javascript@main/libs/modalWindow/modalWindow.css 
+ */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */

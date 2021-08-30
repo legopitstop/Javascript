@@ -1,3 +1,7 @@
+/**
+ * https://cdn.jsdelivr.net/gh/legopitstop/Javascript@main/libs/modalWindow/modalWindow.js
+ */
+
 $(document).ready(function () {
     console.log('loaded modalWindow.js')
 });

@@ -9,7 +9,8 @@ modalWindow.js provides an easy way to create [Modal Window](https://en.wikipedi
 - [dependencies](dependencies.md)
 
 ## Install
+Add the following code to your header.
 ```html
-<script src="?"></script>
-<link type="stylesheet" href="?">
+<script src="https://cdn.jsdelivr.net/gh/legopitstop/Javascript@main/libs/modalWindow/modalWindow.js"></script>
+<link type="stylesheet" href="https://cdn.jsdelivr.net/gh/legopitstop/Javascript@main/libs/modalWindow/modalWindow.css">
 ```

@@ -34,9 +34,10 @@ LPSCommon.js provides a few quality of life functions.
     - [markdownHTML](markdown-html.md)
 
 ## Install
-Make sure to check out the [dependencies](dependencies.md) page
+Add the following code to your header. Make sure to check out the [dependencies](dependencies.md) page
 ```html
-<script src="??"></script>
+<script src="https://cdn.jsdelivr.net/gh/legopitstop/Javascript@main/libs/LPSCommon/LPSCommon.js"></script>
+<link type="stylesheet" href="https://cdn.jsdelivr.net/gh/legopitstop/Javascript@main/libs/LPSCommon/LPSCommon.css">
 ```
 
 ## Out of box
