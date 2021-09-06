@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "JSON Schmea",
+    "description": "A schema for list.json",
+    "default": {},
+    "type": "object",
+    "required": [
+        "id",
+        "examples"
+    ],
+    "properties": {
+        "id": {
+            "description": "The id of the datalist.",
+            "type": "string"
+        },
+        "examples": {
+            "description": "A list of values for the datalist.",
+            "type": "array",
+            "default": [],
+            "items": {
+                "description": "The value to add to the list.",
+                "required": [
+                    "value"
+                ],
+                "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "object"
+                ],
+                "properties": {
+                    "description": {
+                        "description": "The description of the item.",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "The value of the item. This is what will be added when the user clicks on it.",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
