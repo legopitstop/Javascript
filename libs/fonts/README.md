@@ -4,26 +4,28 @@
 - [Minecraft](#minecraft)
 
 ## Galactic
-### HTML
+### Install
+#### HTML
 ```html
-<link rel="stylesheet" href="">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/legopitstop/Javascript/libs/fonts/galactic.css">
 ```
-### CSS
+#### CSS
 ```css
-@import url('');
+@import url('https://cdn.jsdelivr.net/gh/legopitstop/Javascript/libs/fonts/galactic.css');
 ```
 [Back to top](#)
 
 ---
 
 ## Minecraft
-### HTML
+### Install
+#### HTML
 ```html
-<link rel="stylesheet" href="">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/legopitstop/Javascript/libs/fonts/minecraft.css">
 ```
-### CSS
+#### CSS
 ```css
-@import url('');
+@import url('https://cdn.jsdelivr.net/gh/legopitstop/Javascript/libs/fonts/minecraft.css');
 ```
 [Back to top](#)
 
