@@ -1,5 +1,6 @@
 ### Modal JSON Syntax
 #### Root
+
 | Name     | Type                       | Default | Description                    | Example         |
 |----------|----------------------------|---------|--------------------------------|-----------------|
 | `title`  | [object](#text-components) |         | The title of the modal         | `title: {...}`  |
@@ -7,6 +8,7 @@
 | `theme?` | [enum](#theme)             | `light` | The theme to use for the modal | `theme: 'dark'` |
 
 #### Text Components
+
 | Name             | Type                 | Default | Description                                  | Example                                |
 |------------------|----------------------|---------|----------------------------------------------|----------------------------------------|
 | `text`           | String               |         | The text to display                          | `text: 'Hello World!'`                 |
@@ -36,6 +38,7 @@ This event system may get reworked in the future.
 
 #### Input
 More components for Input is planned.
+
 | Name        | Type   | Default | Description                                               | Example                   |
 |-------------|--------|---------|-----------------------------------------------------------|---------------------------|
 | `type?`     | Enum   | `text`  | The type of input to use                                  | `type: 'list'`            |
@@ -43,6 +46,7 @@ More components for Input is planned.
 | `examples?` | Array  |         | A list of example values for the datalist                 | `examples: ['a','b','c']` |
 
 #### Codeblock
+
 | Name        | Type                | Default | Description                                                        | Example                  |
 |-------------|---------------------|---------|--------------------------------------------------------------------|--------------------------|
 | `id?`       | String              |         | The id of the codeblock, if undefined it will generate a UUID      | `id: 'someCode'`         |
@@ -53,6 +57,7 @@ More components for Input is planned.
 | `code`      | [Object](#code)     |         | Contains the code that is inside the codeblock                     | `code: {...}`            |
 
 #### Code
+
 | Name            | Type               | Default | Description                   | Example                                  |
 |-----------------|--------------------|---------|-------------------------------|------------------------------------------|
 | `type`          | [Enum](#code-type) |         | The type of code to insert.   | `type: 'ref'`                            |
@@ -60,6 +65,7 @@ More components for Input is planned.
 | `pretty_print?` | Boolean            | `false` | Make the JSON pretty          | `pretty_print: true`                     |
 
 #### Code Type
+
 | Values     | Description                                         |
 |------------|-----------------------------------------------------|
 | `ref`      | value becomes a hyperlink to a file.                |
@@ -68,17 +74,20 @@ More components for Input is planned.
 
 
 #### Extensions
+
 | Values      |
 |-------------|
 | `text/json` |
 
 #### Theme
+
 | Values  |
 |---------|
 | `dark`  |
 | `light` |
 
 #### Align
+
 | Values   |
 |----------|
 | `left`   |
@@ -86,11 +95,13 @@ More components for Input is planned.
 | `right`  |
 
 #### Style
+
 | Values   |
 |----------|
 | `button` |
 
 #### Action
+
 | Values              |
 |---------------------|
 | `copy_to_clipboard` |
