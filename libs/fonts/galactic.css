@@ -1,4 +1,4 @@
 @font-face {
     font-family: Galactic;
-    src: url('https://cdn.jsdelivr.net/gh/legopitstop/Javascript/libs/fonts/galactic_font.otf');
+    src: url('./galactic_font.otf');
 }
