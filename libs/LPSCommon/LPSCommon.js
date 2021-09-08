@@ -3,6 +3,7 @@
  */
 
  $(document).ready(function () {
+    console.log('loaded LPSCommon.js')
     isRequired();
     convertURL(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'b', 'strong', 'i', 'em', 'mark', 'small', 'del', 'ins', 'sub', 'sup', 'th', 'td']);
     codeblock('textarea.codeblock');
