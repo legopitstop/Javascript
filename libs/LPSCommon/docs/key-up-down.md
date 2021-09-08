@@ -9,11 +9,10 @@ desc
 
 ---
 
-## Dependencies
-- [jquery](dependencies.md#jquery)
 ## Syntax
 ```typescript
 keydown(string: key, Function: func): void
+keyup(string: key, Function: func): void
 ```
 [Back to top](#)
 
@@ -40,7 +39,7 @@ keyup('K_ENTER', function () {
 | `K_RETURN`      | \r   | return          |
 | `K_PAUSE`       |      | pause           |
 | `K_ENTER`       |      | enter           |
-| `K_ESCAPE`      | ^[   | escape          |
+| `K_ESCAPE`      |      | escape          |
 | `K_SPACE`       |      | space           |
 | `K_COMMA`       | ,    | comma           |
 | `K_MINUS`       | -    | minus sign      |
