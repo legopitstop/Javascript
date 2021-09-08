@@ -8,6 +8,7 @@ Some extra custom styling for markdown. Example use `§` chat colors. You can us
 
 ## Dependencies
 - [Font Awsome](dependencies.md#font-awsome)
+- [Marked](dependencies.md#marked)
 ## Syntax
 ```typescript
 customMarked(text: String, key?: String, value?: String): String

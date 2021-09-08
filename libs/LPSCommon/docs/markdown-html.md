@@ -8,6 +8,7 @@ converts markdown that is inside the HTML to HTML format.
 
 ## Dependencies
 - [jquery](dependencies.md#jquery)
+- [Marked](dependencies.md#marked)
 ## Syntax
 ```typescript
 markdownHTML(selectorList?: Array): void
