@@ -2,7 +2,7 @@
  * https://cdn.jsdelivr.net/gh/legopitstop/Javascript/libs/LPSCommon/LPSCommon.js
  */
 
- $(document).ready(function () {
+$(document).ready(function () {
     console.log('loaded LPSCommon.js')
     isRequired();
     convertURL(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'b', 'strong', 'i', 'em', 'mark', 'small', 'del', 'ins', 'sub', 'sup', 'th', 'td']);
@@ -95,7 +95,7 @@ function customMarked(text, key, value) {
         }
     };
     return text
-        .replace(/:fa-(.*):/g,'<span class="fa fa-$1"></span>')
+        .replace(/:fa-(.*):/g, '<span class="fa fa-$1"></span>')
         .replace(/§0(.*)/gm, '<span style="' + black + ';">$1</span>')
         .replace(/§1(.*)/gm, '<span style="' + dark_blue + ';">$1</span>')
         .replace(/§2(.*)/gm, '<span style="' + dark_green + ';">$1</span>')
@@ -245,97 +245,257 @@ function cutElementSelector(selector) {
 
 }
 
+function pressKey() {
+    console.error('Function "pressKey" is Deprecated, use "keydown" or "keyup" instead')
+}
 /**
- * returns the key that the user clicked (EXPERIMENTAL)
- * @param {String} event The element to check.
- * @returns {String} Returns the type of keypress that was activated.
+ * Runs the function when the user pressed the defined button.
+ * @param {String} key The key ID to match.
+ * @param {Function} func The function to run.
  */
-function pressKey(event) {
-    if (event.keyCode == 0) { return 'unknown' };
-    if (event.keyCode == 3) { return 'break' };
-    if (event.keyCode == 8) { return 'backspace' };
-    if (event.keyCode == 9) { return 'tab' };
-    if (event.keyCode == 12) { return 'clear' };
-    if (event.keyCode == 13) { return 'enter' };
-    if (event.keyCode == 16) { return 'shift' };
-    if (event.keyCode == 17) { return 'control' };
-    if (event.keyCode == 18) { return 'alt' };
-    if (event.keyCode == 19) { return 'pause' };
-    if (event.keyCode == 20) { return 'capsLock' };
-    if (event.keyCode == 27) { return 'escape' };
-    if (event.keyCode == 32) { return 'space' };
-    if (event.keyCode == 33) { return 'pageUp' };
-    if (event.keyCode == 34) { return 'pageDown' };
-    if (event.keyCode == 35) { return 'end' };
-    if (event.keyCode == 36) { return 'home' };
-    if (event.keyCode == 37) { return 'arrowLeft' };
-    if (event.keyCode == 38) { return 'arrowUp' };
-    if (event.keyCode == 39) { return 'arrowRight' };
-    if (event.keyCode == 40) { return 'arrowDown' };
-    if (event.keyCode == 41) { return 'select' };
-    if (event.keyCode == 42) { return 'print' };
-    if (event.keyCode == 43) { return 'execute' };
-    if (event.keyCode == 44) { return 'printScreen' };
-    if (event.keyCode == 45) { return 'insert' };
-    if (event.keyCode == 46) { return 'delete' };
-    if (event.keyCode == 47) { return 'help' };
-    if (event.keyCode == 48) { return '0' };
-    if (event.keyCode == 49) { return '1' };
-    if (event.keyCode == 50) { return '2' };
-    if (event.keyCode == 51) { return '3' };
-    if (event.keyCode == 52) { return '4' };
-    if (event.keyCode == 53) { return '5' };
-    if (event.keyCode == 54) { return '6' };
-    if (event.keyCode == 55) { return '7' };
-    if (event.keyCode == 56) { return '8' };
-    if (event.keyCode == 57) { return '9' };
-    if (event.keyCode == 96) { return '0' };
-    if (event.keyCode == 97) { return '1' };
-    if (event.keyCode == 98) { return '2' };
-    if (event.keyCode == 99) { return '3' };
-    if (event.keyCode == 100) { return '4' };
-    if (event.keyCode == 101) { return '5' };
-    if (event.keyCode == 102) { return '6' };
-    if (event.keyCode == 103) { return '7' };
-    if (event.keyCode == 104) { return '8' };
-    if (event.keyCode == 105) { return '9' };
-    if (event.keyCode == 106) { return 'multiply' };
-    if (event.keyCode == 107) { return 'add' };
-    if (event.keyCode == 109) { return 'subtract' };
-    if (event.keyCode == 110) { return 'decimal' };
-    if (event.keyCode == 111) { return 'devide' };
-    if (event.keyCode == 112) { return 'f1' };
-    if (event.keyCode == 113) { return 'f2' };
-    if (event.keyCode == 114) { return 'f3' };
-    if (event.keyCode == 115) { return 'f4' };
-    if (event.keyCode == 116) { return 'f5' };
-    if (event.keyCode == 117) { return 'f6' };
-    if (event.keyCode == 118) { return 'f7' };
-    if (event.keyCode == 119) { return 'f8' };
-    if (event.keyCode == 120) { return 'f9' };
-    if (event.keyCode == 121) { return 'f10' };
-    if (event.keyCode == 122) { return 'f11' };
-    if (event.keyCode == 123) { return 'f12' };
-    if (event.keyCode == 124) { return 'f13' };
-    if (event.keyCode == 125) { return 'f14' };
-    if (event.keyCode == 126) { return 'f15' };
-    if (event.keyCode == 127) { return 'f16' };
-    if (event.keyCode == 128) { return 'f17' };
-    if (event.keyCode == 129) { return 'f18' };
-    if (event.keyCode == 130) { return 'f19' };
-    if (event.keyCode == 131) { return 'f20' };
-    if (event.keyCode == 132) { return 'f21' };
-    if (event.keyCode == 133) { return 'f22' };
-    if (event.keyCode == 134) { return 'f23' };
-    if (event.keyCode == 135) { return 'f24' };
-    if (event.keyCode == 136) { return 'f25' };
-    if (event.keyCode == 137) { return 'f26' };
-    if (event.keyCode == 138) { return 'f27' };
-    if (event.keyCode == 139) { return 'f28' };
-    if (event.keyCode == 140) { return 'f29' };
-    if (event.keyCode == 141) { return 'f30' };
-    if (event.keyCode == 142) { return 'f31' };
-    if (event.keyCode == 143) { return 'f32' };
+function keydown(key, func) {
+    document.addEventListener('keydown', function (event) {
+        let trigger = false
+        if (key) {
+            event.preventDefault();
+            if (key == 'K_ENTER') { if (event.code === 'Enter') { trigger = true } }
+            else if (key == 'K_BACKSPACE') { if (event.code === 'Backspace') { trigger = true } }
+            else if (key == 'K_TAB') { if (event.code === 'Tab') { trigger = true } }
+            else if (key == 'K_PAUSE') { if (event.code === 'Pause') { trigger = true } }
+            else if (key == 'K_ESCAPE') { if (event.code === 'Escape') { trigger = true } }
+            else if (key == 'K_SPACE') { if (event.code === 'Space') { trigger = true } }
+            else if (key == 'K_COMMA') { if (event.code === 'Comma') { trigger = true } }
+            else if (key == 'K_MINUS') { if (event.code === 'Minus') { trigger = true } }
+            else if (key == 'K_PERIOD') { if (event.code === 'Period') { trigger = true } }
+            else if (key == 'K_SLASH') { if (event.code === 'Slash') { trigger = true } }
+            else if (key == 'K_0') { if (event.code === 'Digit0') { trigger = true } }
+            else if (key == 'K_1') { if (event.code === 'Digit1') { trigger = true } }
+            else if (key == 'K_2') { if (event.code === 'Digit2') { trigger = true } }
+            else if (key == 'K_3') { if (event.code === 'Digit3') { trigger = true } }
+            else if (key == 'K_4') { if (event.code === 'Digit4') { trigger = true } }
+            else if (key == 'K_5') { if (event.code === 'Digit5') { trigger = true } }
+            else if (key == 'K_6') { if (event.code === 'Digit6') { trigger = true } }
+            else if (key == 'K_7') { if (event.code === 'Digit7') { trigger = true } }
+            else if (key == 'K_8') { if (event.code === 'Digit8') { trigger = true } }
+            else if (key == 'K_9') { if (event.code === 'Digit9') { trigger = true } }
+            else if (key == 'K_BACKQUOTE') { if (event.code === 'Backquote') { trigger = true } }
+            else if (key == 'K_a') { if (event.code === 'KeyA') { trigger = true } }
+            else if (key == 'K_b') { if (event.code === 'KeyB') { trigger = true } }
+            else if (key == 'K_c') { if (event.code === 'KeyC') { trigger = true } }
+            else if (key == 'K_d') { if (event.code === 'KeyD') { trigger = true } }
+            else if (key == 'K_e') { if (event.code === 'KeyE') { trigger = true } }
+            else if (key == 'K_f') { if (event.code === 'KeyF') { trigger = true } }
+            else if (key == 'K_g') { if (event.code === 'KeyG') { trigger = true } }
+            else if (key == 'K_h') { if (event.code === 'KeyH') { trigger = true } }
+            else if (key == 'K_i') { if (event.code === 'KeyI') { trigger = true } }
+            else if (key == 'K_j') { if (event.code === 'KeyJ') { trigger = true } }
+            else if (key == 'K_k') { if (event.code === 'KeyK') { trigger = true } }
+            else if (key == 'K_l') { if (event.code === 'KeyL') { trigger = true } }
+            else if (key == 'K_m') { if (event.code === 'KeyM') { trigger = true } }
+            else if (key == 'K_n') { if (event.code === 'KeyN') { trigger = true } }
+            else if (key == 'K_o') { if (event.code === 'KeyO') { trigger = true } }
+            else if (key == 'K_p') { if (event.code === 'KeyP') { trigger = true } }
+            else if (key == 'K_q') { if (event.code === 'KeyQ') { trigger = true } }
+            else if (key == 'K_r') { if (event.code === 'KeyR') { trigger = true } }
+            else if (key == 'K_s') { if (event.code === 'KeyS') { trigger = true } }
+            else if (key == 'K_t') { if (event.code === 'KeyT') { trigger = true } }
+            else if (key == 'K_u') { if (event.code === 'KeyU') { trigger = true } }
+            else if (key == 'K_v') { if (event.code === 'KeyV') { trigger = true } }
+            else if (key == 'K_w') { if (event.code === 'KeyW') { trigger = true } }
+            else if (key == 'K_x') { if (event.code === 'KeyX') { trigger = true } }
+            else if (key == 'K_y') { if (event.code === 'KeyY') { trigger = true } }
+            else if (key == 'K_z') { if (event.code === 'KeyZ') { trigger = true } }
+            else if (key == 'K_DELETE') { if (event.code === 'Delete') { trigger = true } }
+            else if (key == 'K_KP0') { if (event.code === 'Numpad0') { trigger = true } }
+            else if (key == 'K_KP1') { if (event.code === 'Numpad1') { trigger = true } }
+            else if (key == 'K_KP2') { if (event.code === 'Numpad2') { trigger = true } }
+            else if (key == 'K_KP3') { if (event.code === 'Numpad3') { trigger = true } }
+            else if (key == 'K_KP4') { if (event.code === 'Numpad4') { trigger = true } }
+            else if (key == 'K_KP5') { if (event.code === 'Numpad5') { trigger = true } }
+            else if (key == 'K_KP6') { if (event.code === 'Numpad6') { trigger = true } }
+            else if (key == 'K_KP7') { if (event.code === 'Numpad7') { trigger = true } }
+            else if (key == 'K_KP8') { if (event.code === 'Numpad8') { trigger = true } }
+            else if (key == 'K_KP9') { if (event.code === 'Numpad9') { trigger = true } }
+            else if (key == 'K_KP_PERIOD') { if (event.code === 'NumpadDecimal') { trigger = true } }
+            else if (key == 'K_KP_DIVIDE') { if (event.code === 'NumpadDivide') { trigger = true } }
+            else if (key == 'K_KP_MULTIPLY') { if (event.code === 'NumpadMultiply') { trigger = true } }
+            else if (key == 'K_KP_MINUS') { if (event.code === 'NumpadSubtract') { trigger = true } }
+            else if (key == 'K_KP_PLUS') { if (event.code === 'NumpadAdd') { trigger = true } }
+            else if (key == 'K_KP_ENTER') { if (event.code === 'NumpadEnter') { trigger = true } }
+            else if (key == 'K_KP_EQUALS') { if (event.code === 'NumpadEquals') { trigger = true } }
+            else if (key == 'K_UP') { if (event.code === 'ArrowUp') { trigger = true } }
+            else if (key == 'K_DOWN') { if (event.code === 'ArrowDown') { trigger = true } }
+            else if (key == 'K_RIGHT') { if (event.code === 'ArrowRight') { trigger = true } }
+            else if (key == 'K_LEFT') { if (event.code === 'ArrowLeft') { trigger = true } }
+            else if (key == 'K_INSERT') { if (event.code === 'Insert') { trigger = true } }
+            else if (key == 'K_HOME') { if (event.code === 'Home') { trigger = true } }
+            else if (key == 'K_END') { if (event.code === 'End') { trigger = true } }
+            else if (key == 'K_PAGEUP') { if (event.code === 'PageUp') { trigger = true } }
+            else if (key == 'K_PAGEDOWN') { if (event.code === 'PageDown') { trigger = true } }
+            else if (key == 'K_F1') { if (event.code === 'F1') { trigger = true } }
+            else if (key == 'K_F2') { if (event.code === 'F2') { trigger = true } }
+            else if (key == 'K_F3') { if (event.code === 'F3') { trigger = true } }
+            else if (key == 'K_F4') { if (event.code === 'F4') { trigger = true } }
+            else if (key == 'K_F5') { if (event.code === 'F5') { trigger = true } }
+            else if (key == 'K_F6') { if (event.code === 'F6') { trigger = true } }
+            else if (key == 'K_F7') { if (event.code === 'F7') { trigger = true } }
+            else if (key == 'K_F8') { if (event.code === 'F8') { trigger = true } }
+            else if (key == 'K_F9') { if (event.code === 'F9') { trigger = true } }
+            else if (key == 'K_F10') { if (event.code === 'F10') { trigger = true } }
+            else if (key == 'K_F11') { if (event.code === 'F11') { trigger = true } }
+            else if (key == 'K_F12') { if (event.code === 'F12') { trigger = true } }
+            else if (key == 'K_F13') { if (event.code === 'F13') { trigger = true } }
+            else if (key == 'K_F14') { if (event.code === 'F14') { trigger = true } }
+            else if (key == 'K_F15') { if (event.code === 'F15') { trigger = true } }
+            else if (key == 'K_NUMLOCK') { if (event.code === 'NumLock') { trigger = true } }
+            else if (key == 'K_CAPSLOCK') { if (event.code === 'CapsLock') { trigger = true } }
+            else if (key == 'K_SCROLLOCK') { if (event.code === 'ScrollLock') { trigger = true } }
+            else if (key == 'K_RSHIFT') { if (event.code === 'ShiftLeft') { trigger = true } }
+            else if (key == 'K_LSHIFT') { if (event.code === 'ShiftRight') { trigger = true } }
+            else if (key == 'K_RCTRL') { if (event.code === 'ControlRight') { trigger = true } }
+            else if (key == 'K_LCTRL') { if (event.code === 'ControlLeft') { trigger = true } }
+            else if (key == 'K_RALT') { if (event.code === 'AltRight') { trigger = true } }
+            else if (key == 'K_LALT') { if (event.code === 'AltLeft') { trigger = true } }
+            else if (key == 'K_RMETA') { if (event.code === 'MetaRight') { trigger = true } }
+            else if (key == 'K_LMETA') { if (event.code === 'MetaLeft') { trigger = true } }
+            else if (key == 'K_PRINT') { if (event.code === 'PrintScreen') { trigger = true } }
+            else if (key == 'K_SYSREQ') { if (event.code === 'PrintScreen') { trigger = true } }
+            else if (key == 'K_MENU') { if (event.code === 'ContextMenu') { trigger = true } }
+            else {
+                console.error('Unknown key ID')
+            }
+            if (trigger == true) {
+                func.call();
+            }
+        } else {
+            return null
+        }
+    });
+}
+
+/**
+ * Runs the function when the user pressed the defined button.
+ * @param {String} key The key ID to match.
+ * @param {Function} func The function to run.
+ */
+function keyup(key, func) {
+    document.addEventListener('keyup', function (event) {
+        let trigger = false
+        if (key) {
+            event.preventDefault();
+            if (key == 'K_ENTER') { if (event.code === 'Enter') { trigger = true } }
+            else if (key == 'K_BACKSPACE') { if (event.code === 'Backspace') { trigger = true } }
+            else if (key == 'K_TAB') { if (event.code === 'Tab') { trigger = true } }
+            else if (key == 'K_PAUSE') { if (event.code === 'Pause') { trigger = true } }
+            else if (key == 'K_ESCAPE') { if (event.code === 'Escape') { trigger = true } }
+            else if (key == 'K_SPACE') { if (event.code === 'Space') { trigger = true } }
+            else if (key == 'K_COMMA') { if (event.code === 'Comma') { trigger = true } }
+            else if (key == 'K_MINUS') { if (event.code === 'Minus') { trigger = true } }
+            else if (key == 'K_PERIOD') { if (event.code === 'Period') { trigger = true } }
+            else if (key == 'K_SLASH') { if (event.code === 'Slash') { trigger = true } }
+            else if (key == 'K_0') { if (event.code === 'Digit0') { trigger = true } }
+            else if (key == 'K_1') { if (event.code === 'Digit1') { trigger = true } }
+            else if (key == 'K_2') { if (event.code === 'Digit2') { trigger = true } }
+            else if (key == 'K_3') { if (event.code === 'Digit3') { trigger = true } }
+            else if (key == 'K_4') { if (event.code === 'Digit4') { trigger = true } }
+            else if (key == 'K_5') { if (event.code === 'Digit5') { trigger = true } }
+            else if (key == 'K_6') { if (event.code === 'Digit6') { trigger = true } }
+            else if (key == 'K_7') { if (event.code === 'Digit7') { trigger = true } }
+            else if (key == 'K_8') { if (event.code === 'Digit8') { trigger = true } }
+            else if (key == 'K_9') { if (event.code === 'Digit9') { trigger = true } }
+            else if (key == 'K_BACKQUOTE') { if (event.code === 'Backquote') { trigger = true } }
+            else if (key == 'K_a') { if (event.code === 'KeyA') { trigger = true } }
+            else if (key == 'K_b') { if (event.code === 'KeyB') { trigger = true } }
+            else if (key == 'K_c') { if (event.code === 'KeyC') { trigger = true } }
+            else if (key == 'K_d') { if (event.code === 'KeyD') { trigger = true } }
+            else if (key == 'K_e') { if (event.code === 'KeyE') { trigger = true } }
+            else if (key == 'K_f') { if (event.code === 'KeyF') { trigger = true } }
+            else if (key == 'K_g') { if (event.code === 'KeyG') { trigger = true } }
+            else if (key == 'K_h') { if (event.code === 'KeyH') { trigger = true } }
+            else if (key == 'K_i') { if (event.code === 'KeyI') { trigger = true } }
+            else if (key == 'K_j') { if (event.code === 'KeyJ') { trigger = true } }
+            else if (key == 'K_k') { if (event.code === 'KeyK') { trigger = true } }
+            else if (key == 'K_l') { if (event.code === 'KeyL') { trigger = true } }
+            else if (key == 'K_m') { if (event.code === 'KeyM') { trigger = true } }
+            else if (key == 'K_n') { if (event.code === 'KeyN') { trigger = true } }
+            else if (key == 'K_o') { if (event.code === 'KeyO') { trigger = true } }
+            else if (key == 'K_p') { if (event.code === 'KeyP') { trigger = true } }
+            else if (key == 'K_q') { if (event.code === 'KeyQ') { trigger = true } }
+            else if (key == 'K_r') { if (event.code === 'KeyR') { trigger = true } }
+            else if (key == 'K_s') { if (event.code === 'KeyS') { trigger = true } }
+            else if (key == 'K_t') { if (event.code === 'KeyT') { trigger = true } }
+            else if (key == 'K_u') { if (event.code === 'KeyU') { trigger = true } }
+            else if (key == 'K_v') { if (event.code === 'KeyV') { trigger = true } }
+            else if (key == 'K_w') { if (event.code === 'KeyW') { trigger = true } }
+            else if (key == 'K_x') { if (event.code === 'KeyX') { trigger = true } }
+            else if (key == 'K_y') { if (event.code === 'KeyY') { trigger = true } }
+            else if (key == 'K_z') { if (event.code === 'KeyZ') { trigger = true } }
+            else if (key == 'K_DELETE') { if (event.code === 'Delete') { trigger = true } }
+            else if (key == 'K_KP0') { if (event.code === 'Numpad0') { trigger = true } }
+            else if (key == 'K_KP1') { if (event.code === 'Numpad1') { trigger = true } }
+            else if (key == 'K_KP2') { if (event.code === 'Numpad2') { trigger = true } }
+            else if (key == 'K_KP3') { if (event.code === 'Numpad3') { trigger = true } }
+            else if (key == 'K_KP4') { if (event.code === 'Numpad4') { trigger = true } }
+            else if (key == 'K_KP5') { if (event.code === 'Numpad5') { trigger = true } }
+            else if (key == 'K_KP6') { if (event.code === 'Numpad6') { trigger = true } }
+            else if (key == 'K_KP7') { if (event.code === 'Numpad7') { trigger = true } }
+            else if (key == 'K_KP8') { if (event.code === 'Numpad8') { trigger = true } }
+            else if (key == 'K_KP9') { if (event.code === 'Numpad9') { trigger = true } }
+            else if (key == 'K_KP_PERIOD') { if (event.code === 'NumpadDecimal') { trigger = true } }
+            else if (key == 'K_KP_DIVIDE') { if (event.code === 'NumpadDivide') { trigger = true } }
+            else if (key == 'K_KP_MULTIPLY') { if (event.code === 'NumpadMultiply') { trigger = true } }
+            else if (key == 'K_KP_MINUS') { if (event.code === 'NumpadSubtract') { trigger = true } }
+            else if (key == 'K_KP_PLUS') { if (event.code === 'NumpadAdd') { trigger = true } }
+            else if (key == 'K_KP_ENTER') { if (event.code === 'NumpadEnter') { trigger = true } }
+            else if (key == 'K_KP_EQUALS') { if (event.code === 'NumpadEquals') { trigger = true } }
+            else if (key == 'K_UP') { if (event.code === 'ArrowUp') { trigger = true } }
+            else if (key == 'K_DOWN') { if (event.code === 'ArrowDown') { trigger = true } }
+            else if (key == 'K_RIGHT') { if (event.code === 'ArrowRight') { trigger = true } }
+            else if (key == 'K_LEFT') { if (event.code === 'ArrowLeft') { trigger = true } }
+            else if (key == 'K_INSERT') { if (event.code === 'Insert') { trigger = true } }
+            else if (key == 'K_HOME') { if (event.code === 'Home') { trigger = true } }
+            else if (key == 'K_END') { if (event.code === 'End') { trigger = true } }
+            else if (key == 'K_PAGEUP') { if (event.code === 'PageUp') { trigger = true } }
+            else if (key == 'K_PAGEDOWN') { if (event.code === 'PageDown') { trigger = true } }
+            else if (key == 'K_F1') { if (event.code === 'F1') { trigger = true } }
+            else if (key == 'K_F2') { if (event.code === 'F2') { trigger = true } }
+            else if (key == 'K_F3') { if (event.code === 'F3') { trigger = true } }
+            else if (key == 'K_F4') { if (event.code === 'F4') { trigger = true } }
+            else if (key == 'K_F5') { if (event.code === 'F5') { trigger = true } }
+            else if (key == 'K_F6') { if (event.code === 'F6') { trigger = true } }
+            else if (key == 'K_F7') { if (event.code === 'F7') { trigger = true } }
+            else if (key == 'K_F8') { if (event.code === 'F8') { trigger = true } }
+            else if (key == 'K_F9') { if (event.code === 'F9') { trigger = true } }
+            else if (key == 'K_F10') { if (event.code === 'F10') { trigger = true } }
+            else if (key == 'K_F11') { if (event.code === 'F11') { trigger = true } }
+            else if (key == 'K_F12') { if (event.code === 'F12') { trigger = true } }
+            else if (key == 'K_F13') { if (event.code === 'F13') { trigger = true } }
+            else if (key == 'K_F14') { if (event.code === 'F14') { trigger = true } }
+            else if (key == 'K_F15') { if (event.code === 'F15') { trigger = true } }
+            else if (key == 'K_NUMLOCK') { if (event.code === 'NumLock') { trigger = true } }
+            else if (key == 'K_CAPSLOCK') { if (event.code === 'CapsLock') { trigger = true } }
+            else if (key == 'K_SCROLLOCK') { if (event.code === 'ScrollLock') { trigger = true } }
+            else if (key == 'K_RSHIFT') { if (event.code === 'ShiftLeft') { trigger = true } }
+            else if (key == 'K_LSHIFT') { if (event.code === 'ShiftRight') { trigger = true } }
+            else if (key == 'K_RCTRL') { if (event.code === 'ControlRight') { trigger = true } }
+            else if (key == 'K_LCTRL') { if (event.code === 'ControlLeft') { trigger = true } }
+            else if (key == 'K_RALT') { if (event.code === 'AltRight') { trigger = true } }
+            else if (key == 'K_LALT') { if (event.code === 'AltLeft') { trigger = true } }
+            else if (key == 'K_RMETA') { if (event.code === 'MetaRight') { trigger = true } }
+            else if (key == 'K_LMETA') { if (event.code === 'MetaLeft') { trigger = true } }
+            else if (key == 'K_PRINT') { if (event.code === 'PrintScreen') { trigger = true } }
+            else if (key == 'K_SYSREQ') { if (event.code === 'PrintScreen') { trigger = true } }
+            else if (key == 'K_MENU') { if (event.code === 'ContextMenu') { trigger = true } }
+            else {
+                console.error('Unknown key ID')
+            }
+            if (trigger == true) {
+                func.call();
+            }
+        } else {
+            return null
+        }
+    });
 }
 
 /**
@@ -702,7 +862,7 @@ function markdownHTML(selectorList) {
         var test = document.querySelectorAll(selectorList[i]);
         for (let m = 0; m < test.length; m++) {
             if ($(test[m]).length > 0) {
-                test[m].innerHTML = marked(test[m].innerHTML.replace(/\\n/g,'\n'));
+                test[m].innerHTML = marked(test[m].innerHTML.replace(/\\n/g, '\n'));
             }
         }
     }
