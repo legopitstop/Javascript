@@ -91,7 +91,7 @@ function customMarked(text, key, value) {
             if (key == 'strike') { strike = value };
             if (key == 'reset') { reset = value };
         } else {
-            console.error('Invalid typeof key. expected "object" or "string", but got "' + typeof key + '"');
+            console.error('[customMarked] Invalid typeof key. expected "object" or "string", but got "' + typeof key + '"');
         }
     };
     return text
@@ -151,8 +151,13 @@ function isRequired() {
  * @returns {Number} A random number between the min and max
  */
 function rng(min, max) {
-    var rng = Math.floor(Math.random() * (max - min) + min);
-    return rng
+    if (min <= max) {
+        var rng = Math.floor(Math.random() * (max - min) + min);
+        return rng
+    } else {
+        console.error('[rng] Min number cannot be more than max')
+        return 'null'
+    }
 }
 /**
  * returns a random number from min and max
@@ -161,8 +166,13 @@ function rng(min, max) {
  * @returns {Number} A random number between the min and max
  */
 function randomNumber(min, max) {
-    var rng = Math.floor(Math.random() * (max - min) + min);
-    return rng
+    if (min <= max) {
+        var rng = Math.floor(Math.random() * (max - min) + min);
+        return rng
+    } else {
+        console.error('[randomNumber] Min number cannot be more than max')
+        return 'null'
+    }
 }
 
 /**
@@ -246,7 +256,7 @@ function cutElementSelector(selector) {
 }
 
 function pressKey() {
-    console.error('Function "pressKey" is Deprecated, use "keydown" or "keyup" instead')
+    console.error('[pressKey] Function "pressKey" is Deprecated, use "keydown" or "keyup" instead')
 }
 /**
  * Runs the function when the user pressed the defined button.
@@ -257,7 +267,6 @@ function keydown(key, func) {
     document.addEventListener('keydown', function (event) {
         let trigger = false
         if (key) {
-            event.preventDefault();
             if (key == 'K_ENTER') { if (event.code === 'Enter') { trigger = true } }
             else if (key == 'K_BACKSPACE') { if (event.code === 'Backspace') { trigger = true } }
             else if (key == 'K_TAB') { if (event.code === 'Tab') { trigger = true } }
@@ -362,9 +371,10 @@ function keydown(key, func) {
             else if (key == 'K_SYSREQ') { if (event.code === 'PrintScreen') { trigger = true } }
             else if (key == 'K_MENU') { if (event.code === 'ContextMenu') { trigger = true } }
             else {
-                console.error('Unknown key ID')
+                console.error('[keydown] Unknown key ID')
             }
             if (trigger == true) {
+                event.preventDefault();
                 func.call();
             }
         } else {
@@ -382,7 +392,6 @@ function keyup(key, func) {
     document.addEventListener('keyup', function (event) {
         let trigger = false
         if (key) {
-            event.preventDefault();
             if (key == 'K_ENTER') { if (event.code === 'Enter') { trigger = true } }
             else if (key == 'K_BACKSPACE') { if (event.code === 'Backspace') { trigger = true } }
             else if (key == 'K_TAB') { if (event.code === 'Tab') { trigger = true } }
@@ -487,9 +496,10 @@ function keyup(key, func) {
             else if (key == 'K_SYSREQ') { if (event.code === 'PrintScreen') { trigger = true } }
             else if (key == 'K_MENU') { if (event.code === 'ContextMenu') { trigger = true } }
             else {
-                console.error('Unknown key ID')
+                console.error('[keyup] Unknown key ID')
             }
             if (trigger == true) {
+                event.preventDefault();
                 func.call();
             }
         } else {
@@ -532,11 +542,11 @@ function parseURLParams(url) {
  */
 function MinMaxValue(value, min, max) {
     if (value >= max + 1) {
-        console.error('Value must be less than ' + max)
+        console.error('[MinMaxValue] Value must be less than ' + max)
         return false;
     } else {
         if (value <= min - 1) {
-            console.error('Value must be more than ' + min)
+            console.error('[MinMaxValue] Value must be more than ' + min)
             return false;
         } else {
             return true;
