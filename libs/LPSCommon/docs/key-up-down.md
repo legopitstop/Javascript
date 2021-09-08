@@ -1,5 +1,5 @@
 # keydown keyup
-desc
+The keydown function will run a function when the user pressed the defined button on the keyboard.
 ## Table of Contents
 - [Dependencies](#dependencies)
 - [Syntax](#syntax)
