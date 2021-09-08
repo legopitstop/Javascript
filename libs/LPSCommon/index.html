@@ -8,11 +8,74 @@
     <!--Required libs for LPSCommon.js -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://kit.fontawesome.com/63823e8fed.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <link rel="stylesheet" href="./LPSCommon.css">
     <script src="./LPSCommon.js"></script>
+    <style>
+    :root {
+        --text: white;
+        --background-darker: #222222;
+        --background-dark: #333333;
+        --background: #444444;
+        --background-light: #555555;
+        --background-lighter: #666666;
+        --primary: #f80;
+    }
+    </style>
+    <script>
+        function exampleRNG() {
+            var min = document.getElementById('rng-min').value
+            var max = document.getElementById('rng-max').value
+            document.getElementById('rng').value = rng(min, max)
+        }
+        keydown('K_ENTER', function () {
+            alert('You pressed the K_ENTER button - keydown')
+        });
+    </script>
 </head>
 <body>
     <h1>LPSCommon.js | Examples</h1>
+    <p>View page source to view the contents of the HTML <code>Ctrl + U</code></p>
+    <h2>MarkdownHTML</h2>
+    <markdown>
+some **bold** text, or do you like *italic* text better? How about ~~strike~~ text? by default you can use the following in the HTML to render the contents in markdown;
+- `<markdown>HERE</markdown>`
+- `<div class="markdown"></div>`
+- `<div class="marked"></div>`
+
+```html
+<markdown>
+# Header
+Some **Bold**
+</markdown>
+```
+
+[View the Marked demo page](https://marked.js.org/demo/ "open page")
+    </markdown>
+    <h2>isRequired</h2>
+    <p>Removing the text inside the input will make the border red. Only works if the <code>required</code> property is present.</p>
+    <input type="text" value="remove me" required>
+
+    <h2>RNG</h2>
+    <p>This will generate a random number between min and max</p>
+    <label for="rng-min">Min:</label>
+    <input type="number" id="rng-min" value='1000'><br>
+    <label for="rng-max">Max:</label>
+    <input type="number" id="rng-max" value='9999'><br>
+    <button onclick="exampleRNG()">Generate</button> <input id="rng" type="number" readonly>
+
+    <h2>ClearElement</h2>
+    <p>This will clear the contents of the element</p>
+    <button onclick="clearElement(false, '#clear')" >Clear</button> <button onclick="clearElement(true, '#clear')" >Clear Confirm</button> <button onclick="document.getElementById('clear').innerHTML = 'Some text to get cleared'" class="fa fa-refresh"></button>
+    <p id="clear">Some text to get cleared</p>
+
+    <h2>CopyElement</h2>
+    <p>This will select, then copy the contents of the element</p>
+    <button onclick="copyElementId('copyme')">Copy</button>
+    <input type="text" id="copyme" value="This is the text to copy">
+
+    <h2>Key</h2>
+    <p>This will run a function when the player clicks the key that is defined. Press your <code>ENTER</code> button on your keyboard</p>
 </body>
 </html>
