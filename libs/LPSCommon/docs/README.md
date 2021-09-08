@@ -13,7 +13,7 @@ LPSCommon.js provides a few quality of life functions.
     - [clearElement](clear-element.md)
     - [copyElement](copy-element.md)
     - [cutElement](cut-element.md)
-    - [pressKey](press-key.md)
+    - [key](key.md)
     - [parseURLParams](parse-url-params.md)
     - [MinMaxValue](min-max-value.md)
     - [errorClass](error-class.md)
