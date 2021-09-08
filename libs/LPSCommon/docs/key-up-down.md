@@ -11,8 +11,8 @@ The keydown function will run a function when the user pressed the defined butto
 
 ## Syntax
 ```typescript
-keydown(string: key, Function: func): void
-keyup(string: key, Function: func): void
+keydown(key: String, func: Function): void
+keyup(key: String, func: Function): void
 ```
 [Back to top](#)
 
@@ -32,6 +32,7 @@ keyup('K_ENTER', function () {
 ---
 
 ## Key IDs
+
 | ID              | ASII | Description     |
 |-----------------|------|-----------------|
 | `K_BACKSPACE`   | \b   | backspace       |
