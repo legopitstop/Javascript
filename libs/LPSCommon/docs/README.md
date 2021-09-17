@@ -5,7 +5,7 @@ LPSCommon.js provides a few quality of life functions.
 - [Out of Box](#out-of-box)
 - [dependencies](dependencies.md)
 - Features
-    - [customMarked](custom-marked.md)
+    - [extendedMarked](extended-marked.md)
     - [imageError](image-error.md)
     - [isrequired](is-required.md)
     - [rng](rng.md)
