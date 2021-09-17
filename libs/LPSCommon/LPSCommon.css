@@ -61,3 +61,30 @@ input:focus, textarea:focus, select:focus {
     outline: none !important;
     border-color: var(--primary);
 }
+
+.btn-block {
+    font-size: 16px;
+    display: block;
+    position: relative;
+    width: calc(95% - .4em);
+}
+
+.btn {
+    user-select: none;
+    cursor: default;
+    padding: .1em .5em;
+    border: 2px solid #ccc;
+    border-radius: .2em;
+    text-align: center;
+    color: #000;
+    text-decoration: none;
+    background-color: #fff;
+}
+
+.btn:hover {
+    background-color: #eee;
+}
+
+.btn:active {
+    background-color: #fff;
+}
