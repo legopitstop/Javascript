@@ -9,19 +9,10 @@ $(document).ready(function () {
     codeblock('textarea.codeblock');
     //valuePlaceholder();
     markdownHTML(['markdown', '.markdown', '.marked']);
+    onenter();
 });
 
-/**
- * Some extra custom styling for markdown. Example use `§` chat colors. You can use `:<emoji>:` for custom icons (powered by font awesome!)
- * @example
- * customMarked('§0Black test §fwhite text')
- * customMarked('§0Black test §fwhite text', 'white', 'red')
- * customMarked('§0Black test §fwhite text', {'white': '#ff0000','black': '#0000ff'})
- * @param {String} text The text to replace.
- * @param {String} [key] The key to set 'value' to.
- * @param {String} [value] The CSS3 to apply
- * @returns {String}
- */
+
 function customMarked(text, key, value) {
     let white = 'color: #ffffff';
     let dark_blue = 'color: #0000be';
@@ -94,6 +85,7 @@ function customMarked(text, key, value) {
             console.error('[customMarked] Invalid typeof key. expected "object" or "string", but got "' + typeof key + '"');
         }
     };
+    console.warn('[customMarked] customMarked will soon be deprecated and replaced with "extendedMarked"')
     return text
         .replace(/:fa-(.*):/g, '<span class="fa fa-$1"></span>')
         .replace(/§0(.*)/gm, '<span style="' + black + ';">$1</span>')
@@ -120,6 +112,127 @@ function customMarked(text, key, value) {
         .replace(/§r(.*)/gm, '<span style="' + reset + '">$1</span>');
 };
 
+/**
+ * Some extra custom styling for markdown. Example use `§` chat colors. You can use `:<emoji>:` for custom icons (powered by font awesome!)
+ * @example
+ * customMarked('§0Black test §fwhite text')
+ * customMarked('§0Black test §fwhite text', 'white', 'red')
+ * customMarked('§0Black test §fwhite text', {'white': '#ff0000','black': '#0000ff'})
+ * @param {String} text The text to replace.
+ * @param {String} [key] The key to set 'value' to.
+ * @param {String} [value] The CSS3 to apply
+ * @returns {String}
+ */
+function extendedMarked(text, key, value) {
+    let white = 'color: #ffffff';
+    let dark_blue = 'color: #0000be';
+    let dark_green = 'color: #00be00';
+    let dark_aqua = 'color: #00bebe';
+    let dark_red = 'color: #be0000';
+    let dark_purple = 'color: #be00be';
+    let gray = 'color: #bebebe';
+    let gold = 'color: #d9a334';
+    let dark_gray = 'color: #3f3f3f';
+    let blue = 'color: #3f3ffe';
+    let green = 'color: #3ffe3f';
+    let aqua = 'color: #3ffefe';
+    let red = 'color: #fe3f3f';
+    let light_purple = 'color: #fe3ffe';
+    let yellow = 'color: #fefe3f';
+    let black = 'color: #000000';
+    let bold = 'font-weight: bold;';
+    let italic = 'font-style: italic;';
+    let underline = 'text-decoration: underline;';
+    let strike = 'text-decoration: line-through;';
+    let reset = 'text-decoration: none; color: var(--text);';
+    if (key) {
+        if (typeof key == 'object') {
+            if (key.white) { white = key.white };
+            if (key.dark_blue) { dark_blue = key.dark_blue };
+            if (key.dark_green) { dark_green = key.dark_green };
+            if (key.dark_aqua) { dark_aqua = key.dark_aqua };
+            if (key.dark_red) { dark_red = key.dark_red };
+            if (key.dark_purple) { dark_purple = key.dark_purple };
+            if (key.gray) { gray = key.gray };
+            if (key.gold) { gold = key.gold };
+            if (key.dark_gray) { dark_gray = key.dark_gray };
+            if (key.blue) { blue = key.blue };
+            if (key.green) { green = key.green };
+            if (key.aqua) { aqua = key.aqua };
+            if (key.red) { red = key.red };
+            if (key.light_purple) { light_purple = key.light_purple };
+            if (key.yellow) { yellow = key.yellow };
+            if (key.black) { black = key.black };
+            if (key.bold) { bold = key.bold };
+            if (key.italic) { italic = key.italic };
+            if (key.underline) { underline = key.underline };
+            if (key.strike) { strike = key.strike };
+            if (key.reset) { reset = key.reset };
+
+        } else if (typeof key == 'string') {
+            if (key == 'white') { white = value };
+            if (key == 'dark_blue') { dark_blue = value };
+            if (key == 'dark_green') { dark_green = value };
+            if (key == 'dark_aqua') { dark_aqua = value };
+            if (key == 'dark_red') { dark_red = value };
+            if (key == 'dark_purple') { dark_purple = value };
+            if (key == 'gray') { gray = value };
+            if (key == 'gold') { gold = value };
+            if (key == 'dark_gray') { dark_gray = value };
+            if (key == 'blue') { blue = value };
+            if (key == 'green') { green = value };
+            if (key == 'aqua') { aqua = value };
+            if (key == 'red') { red = value };
+            if (key == 'light_purple') { light_purple = value };
+            if (key == 'yellow') { yellow = value };
+            if (key == 'black') { black = value };
+            if (key == 'bold') { bold = value };
+            if (key == 'italic') { italic = value };
+            if (key == 'underline') { underline = value };
+            if (key == 'strike') { strike = value };
+            if (key == 'reset') { reset = value };
+        } else {
+            console.error('[customMarked] Invalid typeof key. expected "object" or "string", but got "' + typeof key + '"');
+        }
+    };
+    var custom = text.replace(/(?:\:{1})(fa-[\w\s]{1,})(?:\:{1})/gm, '<span class="fa $1"></span>')
+        .replace(/§0(.*)/gm, '<span style="' + black + ';">$1</span>')
+        .replace(/§1(.*)/gm, '<span style="' + dark_blue + ';">$1</span>')
+        .replace(/§2(.*)/gm, '<span style="' + dark_green + ';">$1</span>')
+        .replace(/§3(.*)/gm, '<span style="' + dark_aqua + ';">$1</span>')
+        .replace(/§4(.*)/gm, '<span style="' + dark_red + ';">$1</span>')
+        .replace(/§5(.*)/gm, '<span style="' + dark_purple + ';">$1</span>')
+        .replace(/§6(.*)/gm, '<span style="' + gold + ';">$1</span>')
+        .replace(/§7(.*)/gm, '<span style="' + gray + ';">$1</span>')
+        .replace(/§8(.*)/gm, '<span style="' + dark_gray + ';">$1</span>')
+        .replace(/§9(.*)/gm, '<span style="' + blue + ';">$1</span>')
+        .replace(/§a(.*)/gm, '<span style="' + green + ';">$1</span>')
+        .replace(/§b(.*)/gm, '<span style="' + aqua + ';">$1</span>')
+        .replace(/§c(.*)/gm, '<span style="' + red + ';">$1</span>')
+        .replace(/§d(.*)/gm, '<span style="' + light_purple + ';">$1</span>')
+        .replace(/§e(.*)/gm, '<span style="' + yellow + ';">$1</span>')
+        .replace(/§f(.*)/gm, '<span style="' + white + ';">$1</span>')
+        .replace(/§l(.*)/gm, '<span style="' + bold + '">$1</span>')
+        .replace(/§o(.*)/gm, '<span style="' + italic + '">$1</span>')
+        .replace(/§n(.*)/gm, '<span style="' + underline + '">$1</span>')
+        .replace(/§m(.*)/gm, '<span style="' + strike + '">$1</span>')
+        .replace(/§k(.*)/gm, '<span style="color: black;">$1</span>')
+        .replace(/§r(.*)/gm, '<span style="' + reset + '">$1</span>')
+
+        .replace(/(?:\!\[)([\w\s.]{1,})(?:\]\()(?:https:\/\/www\.youtube\.com\/embed\/|https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)([\w\d]{1,})(?:&.*)?(?:\))/gm, '<iframe width="500" height="300" src="https://www.youtube.com/embed/$2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+        .replace(/(?:\|{2})([\w\s.]{1,})(?:\|{2})/gm, '<span onclick="console.log(\'Spoilers have not yet been fully added\')" class="spoiler hidden">$1</span>')
+        .replace(/(?:_{2})([\w\s.]{1,})(?:_{2})/gm, '<u>$1</u>')
+        .replace(/(?:\:{1})([a-z\-\s]{1,})(?:\:{1})/gm, '<span class="fa $1"></span>')
+        .replace(/(?:\^{1})([\w.]{1})(?:\s{1})/gm, '<sup>$1</sup>')
+        .replace(/(?:\^\{{1})([\w.]{1,})(?:\}{1})/gm, '<sup>$1</sup>')
+        .replace(/(?:_{1})([\w.]{1})(?:\s{1})/gm, '<sub>$1</sub>')
+        .replace(/(?:_\{{1})([\w.]{1,})(?:\}{1})/gm, '<sub>$1</sub>')
+        .replace(/(?:\|{1})([\w\s.]{1,})(?:\|{1})/gm, '<mark>$1</mark>')
+        .replace(/(?:\?\[)([\w\s.]{1,})(?:\]\()([\w\s.]{1,})(?:\))/gm, '<details><summary>$1</summary>$2</details>');
+
+    return marked(custom)
+
+}
 /**
  * Will replace with a missing image.
  * @param {String} image Element to replace source if error.
@@ -872,8 +985,110 @@ function markdownHTML(selectorList) {
         var test = document.querySelectorAll(selectorList[i]);
         for (let m = 0; m < test.length; m++) {
             if ($(test[m]).length > 0) {
-                test[m].innerHTML = marked(test[m].innerHTML.replace(/\\n/g, '\n'));
+                test[m].innerHTML = extendedMarked(test[m].innerHTML.replace(/\\n/g, '\n'));
             }
         }
     }
+}
+
+/**
+ * When the user is focued on an element and presses enter it will run this function
+ */
+function onenter() {
+    var elem = document.querySelectorAll('[onenter]')
+    for (let i = 0; i < elem.length; i++) {
+        /* Need to remove eventlistener on blur */
+        elem[i].addEventListener('focus', function () {
+            console.log('focus')
+            elem[i].addEventListener('keydown', function (event) {
+                if (event.code == 'Enter') {
+                    console.log('worked')
+                }
+            });
+        });
+        elem[i].removeEventListener('blur', function () {
+            console.log('stop event')
+        })
+    }
+}
+
+/**
+ * EXPERIMENTAL - saves input value to doc to be called later. This function may get moved to a new script
+ * @param {String} id The id of the element to grab the value from.
+ * @param {Boolean} [noDuplicates] When true it will not add dupliacate values to datalist
+ * @returns Creates a datalist with the elements id with a suffix of `-history`
+ */
+function saveHistory(id, noDuplicates) {
+    if (id) {
+        var elem = document.getElementById(id)
+        if (elem.value != '' || elem.value != undefined) {
+            var contents = '<option index="?" value="' + elem.value + '"></option>'
+            var hist = document.getElementById(id + '-history')
+            var dup = document.querySelector('#' + id + '-history option[value="' + elem.value + '"]')
+            var empty = document.querySelector('#' + id + '-history option[value=""]')
+
+            if (noDuplicates == true) {
+                /* remove duplicates */
+                if (dup) {
+                    dup.remove();
+                }
+            }
+            if (hist) {
+                $('#' + id + '-history').append('<option index="?" value="' + elem.value + '"></option>');
+            } else {
+                /* New hist */
+                $('body').append('<datalist id="' + id + '-history">' + contents + '</datalist>');
+            }
+            /* remove empty options */
+            if (empty) {
+                empty.remove();
+            }
+            elem.value = ''
+        } else {
+            console.error('[saveHistory] cannot save a value that is empty or undefined.');
+        }
+    } else {
+        console.error('[saveHistory] Missing varable "id"')
+    }
+}
+
+/**
+ * EXPERMENTAL - Returns all the items in the history
+ * @param {String} id The id of the history input.
+ * @returns {String[]} All the values of history as an array
+ */
+function getHistory(id) {
+    if (id) {
+        var ar = []
+        var hist = document.querySelectorAll('#' + id + '-history option')
+        if (hist.length != 0) {
+            for (let i = 0; i < hist.length; i++) {
+                if (i == 0) {
+                    ar = ar + '"' + hist[i].value + '"';
+                } else {
+                    ar = ar + ',"' + hist[i].value + '"';
+                }
+            }
+            var out = '[' + ar + ']';
+            return JSON.parse(out);
+        } else {
+            return null;
+        }
+
+    } else {
+        console.error('[getHistory] Missing varable "id"')
+    }
+}
+
+/**
+ * Will add a href that will download the contents of the target.
+ * @param {String} btnID The button ID.
+ * @param {String} targetID The target's value to get.
+ * @param {String} fileName The filename.
+ */
+function download(btnID, targetID, fileName) {
+    var elem = document.getElementById(btnID)
+    var contents = document.getElementById(targetID).value
+    elem.download = fileName;
+    elem.href = "data:text/json," + contents;
 }

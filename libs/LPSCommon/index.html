@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>LPSCommon.js | Examples</title>
     <link rel="shortcut icon" type="image/x-icon" href="/Javascript/favicon.ico?v=1">
@@ -14,61 +15,96 @@
     <link rel="stylesheet" href="./LPSCommon.css">
     <script src="./LPSCommon.js"></script>
     <style>
-    :root {
-        --text: white;
-        --background-darker: #222222;
-        --background-dark: #333333;
-        --background: #444444;
-        --background-light: #555555;
-        --background-lighter: #666666;
-        --primary: #f80;
-    }
+        :root {
+            --text: white;
+            --background-darker: #222222;
+            --background-dark: #333333;
+            --background: #444444;
+            --background-light: #555555;
+            --background-lighter: #666666;
+            --primary: #f80;
+        }
     </style>
     <script>
+        $(document).ready(function () {
+            downloadBtn()
+        });
+
         function exampleRNG() {
             var min = document.getElementById('rng-min').value
             var max = document.getElementById('rng-max').value
             document.getElementById('rng').value = rng(min, max)
         }
-        keydown('K_ENTER', function () {
-            alert('You pressed the K_ENTER button - keydown')
+        keydown('K_DELETE', function () {
+            alert('You pressed the K_DELETE button - keydown')
         });
+        function getHist() {
+            /* if hist contains items */
+            if (getHistory('hist') != null) {
+                document.getElementById('hist-out').value = JSON.stringify(getHistory('hist'), null, 4)
+            } else {
+                document.getElementById('hist-out').value = 'Try sending some text in the above input first, then try again'
+            }
+        }
+
+        function downloadBtn() {
+            var fileName = document.getElementById('fileName').value
+            download('donwloadFile', 'target', fileName)
+        }
     </script>
 </head>
+
 <body>
     <h1>LPSCommon.js | Examples</h1>
     <p>View page source to view the contents of the HTML <code>Ctrl + U</code></p>
     <h2>MarkdownHTML</h2>
     <markdown>
-some **bold** text, or do you like *italic* text better? How about ~~strike~~ text? by default you can use the following in the HTML to render the contents in markdown;
-- `<markdown>HERE</markdown>`
-- `<div class="markdown"></div>`
-- `<div class="marked"></div>`
+        some **bold** text, or do you like *italic* text better? How about ~~strike~~ text? by default you can use the
+        following in the HTML to render the contents in markdown;
+        - `<markdown>HERE</markdown>`
+        - `<div class="markdown"></div>`
+        - `<div class="marked"></div>`
 
-```html
-<markdown>
-# Header
-Some **Bold**
-</markdown>
-```
+        ```html
+        <markdown>
+            # Header
+            Some **Bold**
+        </markdown>
+        ```
 
-[View the Marked demo page](https://marked.js.org/demo/ "open page")
+        [View the Marked demo page](https://marked.js.org/demo/ "open page")
+
+        ## extendedMarked
+        - font awesome: :fa-home: :fa-spinner fa-pulse:
+        - color: §0Black test §fwhite text §1blue text
+        - underlined: __underlined__
+        - styling with `§`: §lBold §nUnderlined
+        - superscript: 123^1 123^{123}
+        - subscript: 123_1 123_{123}
+        - details: ?[Details](Something small enough to escape casual notice.)
+        - marked: this is some |marked| text.
+        - image change: When you add a youtube video URL to image markdown (`![alt](URL)`) It will embed the video.
+        ---
+
     </markdown>
     <h2>isRequired</h2>
-    <p>Removing the text inside the input will make the border red. Only works if the <code>required</code> property is present.</p>
+    <p>Removing the text inside the input will make the border red. Only works if the <code>required</code> property is
+        present.</p>
     <input type="text" value="remove me" required>
 
     <h2>RNG</h2>
     <p>This will generate a random number between min and max</p>
     <label for="rng-min">Min:</label>
-    <input type="number" id="rng-min" value='1000'><br>
+    <input type="number" onmouseover="keydown('K_ENTER', function () {exampleRNG();});" id="rng-min" value='1000'><br>
     <label for="rng-max">Max:</label>
-    <input type="number" id="rng-max" value='9999'><br>
+    <input type="number" onmouseover="keydown('K_ENTER', function () {exampleRNG();});" id="rng-max" value='9999'><br>
     <button onclick="exampleRNG()">Generate</button> <input id="rng" type="text" readonly>
 
     <h2>ClearElement</h2>
     <p>This will clear the contents of the element</p>
-    <button onclick="clearElement(false, '#clear')" >Clear</button> <button onclick="clearElement(true, '#clear')" >Clear Confirm</button> <button onclick="document.getElementById('clear').innerHTML = 'Some text to get cleared'" class="fa fa-refresh"></button>
+    <button onclick="clearElement(false, '#clear')">Clear</button> <button onclick="clearElement(true, '#clear')">Clear
+        Confirm</button> <button onclick="document.getElementById('clear').innerHTML = 'Some text to get cleared'"
+        class="fa fa-refresh"></button>
     <p id="clear">Some text to get cleared</p>
 
     <h2>CopyElement</h2>
@@ -77,6 +113,45 @@ Some **Bold**
     <input type="text" id="copyme" value="This is the text to copy">
 
     <h2>Key</h2>
-    <p>This will run a function when the player clicks the key that is defined. Press your <code>ENTER</code> button on your keyboard</p>
+    <p>This will run a function when the player clicks the key that is defined. Press your <code>DELETE</code> button on
+        your keyboard</p>
+
+    <h2>Input history</h2>
+    <p>This will save all previous entered values (only in this current session) in the HTML as a datalist</p>
+    <input type="text" onmouseover="keydown('K_ENTER', function () {saveHistory('hist');});" id="hist"
+        list="hist-history" value="Some text"><button onclick="saveHistory('hist');">Send</button><br>
+    <textarea id="hist-out" cols="30" rows="10" style="resize: none;" readonly></textarea><button
+        onclick="getHist()">Get Hist</button><br>
+
+    <h2>Enter</h2>
+    <p>If you add the property <code>onenter</code> that contains a function. it will run the function if the user
+        presses <code>ENTER</code> while focused</p>
+    <input type="text" onenter="console.log('worked')" value="press enter">
+
+    <h2>Download</h2>
+    <p>Will add a href that will download the contents of the target.</p>
+    <div onchange="downloadBtn()">
+        <label for="fileName">fileName </label> <input type="text" id="fileName" value="download.json"><br>
+        <textarea id="target" style="resize: none; width: 50em; height: 19em;">
+{
+    "values": [
+        {
+            "type": "string",
+            "quotes": true
+        },
+        {
+            "type": "object",
+            "quotes": false
+        },
+        {
+            "type": "number",
+            "quotes": false
+        }
+    ]
+}</textarea><br>
+    </div>
+
+    <a class="btn" id="donwloadFile">Download</a>
 </body>
+
 </html>
