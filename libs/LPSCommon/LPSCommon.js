@@ -1092,3 +1092,21 @@ function download(btnID, targetID, fileName) {
     elem.download = fileName;
     elem.href = "data:text/json," + contents;
 }
+
+/**
+ * 
+ * @param {Object} input The type object that you want to grab its contents keys
+ * @returns An array of all the keys.
+ */
+function getKeys(input) {
+    if (typeof input == 'object') {
+        let store = [];
+        for (const key of Object.entries(input)) {
+            store.push(key[0]);
+        }
+        return store;
+    } else {
+        console.error('expected input to be an object but got ' + typeof input);
+        return false;
+    }
+}
