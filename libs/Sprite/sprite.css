@@ -1,39 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Material+Icons');
-
-:root {
-    --text: white;
-    --background-darker: #222222;
-    --background-dark: #333333;
-    --background: #444444;
-    --background-light: #555555;
-    --background-lighter: #666666;
-}
-
-body {
-    color: var(--text);
-    background-color: var(--background);
-    padding: 5em;
-}
-
-.header {
-    padding: .1em 1em;
-    background-color: var(--background-darker);
-    position: fixed;
-    vertical-align: middle;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-
-p {
-    max-width: 50em;
-}
-
-.test {
-    padding: 100px;
-}
-
-
 .invslot {
     position: relative;
     display: inline-block;
@@ -56,7 +20,6 @@ p {
     width: 32px;
     height: 32px;
 }
-
 
 .sprite {
     image-rendering: pixelated;
