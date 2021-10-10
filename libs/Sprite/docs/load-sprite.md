@@ -3,8 +3,8 @@ Will place a sprite image from a sprite sheet using a JSON that contains all the
 ## Table of Contents
 - [Syntax](#syntax)
 - [Example](#example)
----
 
+---
 ## Syntax
 ```typescript
 loadSprite(id: string, selector: string): void
