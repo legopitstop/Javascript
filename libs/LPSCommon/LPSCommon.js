@@ -1110,3 +1110,17 @@ function getKeys(input) {
         return false;
     }
 }
+
+/**
+ * Will copy the text to the users clipboard
+ * @param {String} text The text to copy to the clipboard
+ */
+function copy_to_clipboard(text) {
+    var input = document.createElement('input');
+    input.setAttribute('value', text);
+    document.body.appendChild(input);
+    input.select();
+    var result = document.execCommand('copy');
+    document.body.removeChild(input);
+    return result;
+}
