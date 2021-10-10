@@ -1,0 +1,43 @@
+{
+    "$id": "https://cdn.jsdelivr.net/gh/legopitstop/Javascript/libs/Sprite/schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "description": "JSON schmea for textures.",
+    "type": "object",
+    "default": {},
+    "required": [
+        "textures",
+        "file",
+        "width",
+        "height"
+    ],
+    "properties": {
+        "file": {
+            "description": "The sprite file that conatins all the items.",
+            "type": "string"
+        },
+        "width": {
+            "description": "The width of one item in the sprite",
+            "type": "integer"
+        },
+        "height": {
+            "description": "The height of one item in the sprite",
+            "type": "integer"
+        },
+        "textures": {
+            "description": "A list of textures that the sprite contains.",
+            "type": "object",
+            "additionalProperties": {
+                "description": "The id of the texture.",
+                "type": "array",
+                "maxItems": 2,
+                "minItems": 2,
+                "items": {
+                    "description": "The UV of the image. example: [1,1] will be the top left. [2,1] will be the next texture to the right.",
+                    "type": "integer",
+                    "default": 1,
+                    "minimum": 1
+                }
+            }
+        }
+    }
+}
