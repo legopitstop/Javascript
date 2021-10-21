@@ -1,0 +1,91 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "description": "RAW JSON text",
+    "type": [
+        "object",
+        "array",
+        "string"
+    ],
+    "default": {},
+    "items": {
+        "$ref": "#"
+    },
+    "properties": {
+        "text": {
+            "description": "The text to apply",
+            "type": "string"
+        },
+        "color": {
+            "description": "The color of the text",
+            "type": "string"
+        },
+        "translate": {
+            "description": "The text to apply, but you can add %s and 'with' to replace text.",
+            "type": "string"
+        },
+        "with": {
+            "description": "A list of text to replace",
+            "type": "array",
+            "items": {
+                "$ref": "#"
+            }
+        },
+        "bold": {
+            "description": "Make the text bold",
+            "type": "boolean",
+            "default": true
+        },
+        "italic": {
+            "description": "Make the text italic",
+            "type": "boolean",
+            "default": true
+        },
+        "underlined": {
+            "description": "Make the text underlined",
+            "type": "boolean",
+            "default": true
+        },
+        "strikethrough": {
+            "description": "Make the text strikethrough",
+            "type": "boolean",
+            "default": true
+        },
+        "font": {
+            "description": "The font to use.",
+            "type": "string"
+        },
+        "clickEvent": {
+            "description": "Do something when the user clicks on the text.",
+            "type": "object",
+            "default": {},
+            "properties": {
+                "action": {
+                    "description": "The type of action to run.",
+                    "enum": [
+                        "run_function",
+                        "open_url",
+                        "copy_to_clipboard"
+                    ]
+                },
+                "value": {
+                    "description": "The value to interprit action",
+                    "type": "string"
+                }
+            }
+        },
+        "hoverEvent": {
+            "description": "Do something when the user hovers over the text.",
+            "type": "object",
+            "default": {},
+            "properties": {
+                "action": {
+                    "description": "The type of action to run.",
+                    "enum": ["show_text"]
+                },
+                "contents": {
+                    "$ref": "#"
+                }
+            }
+        }
+    }
+}
