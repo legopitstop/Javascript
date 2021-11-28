@@ -62,9 +62,12 @@
                 "action": {
                     "description": "The type of action to run.",
                     "enum": [
-                        "run_function",
+                        "change_page",
+                        "copy_to_clipboard",
+                        "open_file",
                         "open_url",
-                        "copy_to_clipboard"
+                        "run_command",
+                        "suggest_command"
                     ]
                 },
                 "value": {
